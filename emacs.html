@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-04-13 Sat 12:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EMACS</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Isaías Moreno Cruz" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">EMACS</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga67b979">1. Básicos de Emacs</a>
+<ul>
+<li><a href="#orgb247d35">1.1. Comandos básicos</a>
+<ul>
+<li><a href="#org3cfe9b0">1.1.1. Los comandos básicos son:</a></li>
+<li><a href="#orga66944c">1.1.2. Copiar y pegar</a></li>
+<li><a href="#orgb1a0063">1.1.3. Teclas para desplazarse:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0c504b0">2. Configuración básica</a></li>
+<li><a href="#orgf0063aa">3. Melpa</a></li>
+<li><a href="#org6678d45">4. Paquetes esenciales</a>
+<ul>
+<li><a href="#org69bb7f6">4.1. Auto-Complete</a></li>
+<li><a href="#org42d3f31">4.2. Aspell</a>
+<ul>
+<li><a href="#org3985773">4.2.1. Algunos comandos para la corrección de ortografía</a></li>
+</ul>
+</li>
+<li><a href="#org21ec14d">4.3. Yasnippet</a></li>
+</ul>
+</li>
+<li><a href="#orgb162f0c">5. LaTeX</a>
+<ul>
+<li><a href="#orgf74097c">5.1. AUCTeX</a></li>
+</ul>
+</li>
+<li><a href="#org77780de">6. Gnuplot</a></li>
+<li><a href="#orga4c255d">7. R</a></li>
+<li><a href="#orge8f64aa">8. C</a></li>
+<li><a href="#org3dd4aad">9. Comandos de interés</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org02b03ba">9.0.1. Ventanas</a></li>
+<li><a href="#orgaa603cc">9.0.2. Buscar</a></li>
+<li><a href="#org1b92698">9.0.3. Paréntesis</a></li>
+<li><a href="#org3402ff5">9.0.4. Indentación</a></li>
+<li><a href="#org4f48be4">9.0.5. Editando Mayúsculas/Minúscilas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga67b979" class="outline-2">
+<h2 id="orga67b979"><span class="section-number-2">1</span> Básicos de Emacs</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Conocer las teclas <code>&lt;Ctrl&gt;</code> y <code>&lt;Meta&gt;</code> es lo más básico en emacs, y es que son las teclas esenciales para cualquier comando. 
+</p>
+
+<ul class="org-ul">
+<li><b>C</b> : Ctrl</li>
+<li><b>M</b> : Alt (Meta)</li>
+</ul>
+
+<p>
+Para abrir un archivo desde la terminal utilizamos el comando:
+</p>
+
+<ul class="org-ul">
+<li>$ emacs filename</li>
+</ul>
+</div>
+
+<div id="outline-container-orgb247d35" class="outline-3">
+<h3 id="orgb247d35"><span class="section-number-3">1.1</span> Comandos básicos</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org3cfe9b0" class="outline-4">
+<h4 id="org3cfe9b0"><span class="section-number-4">1.1.1</span> Los comandos básicos son:</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li><b>C-x C-s</b> : guardar un archivo</li>
+<li><b>C-x C-c</b> : cerrar archico</li>
+<li><b>C-x C-f</b> : abrir archivo</li>
+<li><b>C-_</b>, <b>C-/</b> : Deshacer</li>
+<li><b>C-g</b> : Abortar comando</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga66944c" class="outline-4">
+<h4 id="orga66944c"><span class="section-number-4">1.1.2</span> Copiar y pegar</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li><b>C-Space</b> : seleccionar</li>
+<li><b>C-x h</b>   : seleccionar todo</li>
+<li><b>M-w</b>     : copixar</li>
+<li><b>C-y</b>     : pegar</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb1a0063" class="outline-4">
+<h4 id="orgb1a0063"><span class="section-number-4">1.1.3</span> Teclas para desplazarse:</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li><b>C-v / M-v</b> : Vover la pantalla hacia delante / atrás</li>
+<li><b>C-l</b>: Mueve el cursor al centro de la pantalla</li>
+<li><b>M-&lt;</b>: Mover al final del archivo</li>
+<li><b>M-&gt;</b>: Mover al inicio del archivo</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0c504b0" class="outline-2">
+<h2 id="org0c504b0"><span class="section-number-2">2</span> Configuración básica</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Para configurar emacs es necesario modificar o crear el archivo <code>.emacs</code> en la dirección <code>~/.emacs</code>. Cada vez que emacs se inicialice leerá el archivo <code>.emacs</code> para configurar a nuestro editor. 
+</p>
+
+<p>
+Algunas configuraciones sencillas se muestran a continuación, sencillas que facilitan el uso de emacs. Cada vez que agregemos algo a nuestro archivo <code>.emacs</code> tenemos que actualizarlo, lo podemos reiniciar o ejecutar unel comando  <code>M-x load-file [RET]</code> e indicar que deseamos leer <code>~/.emacs</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">
+(show-paren-mode t)             <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Resaltar donde abre y cierra el par&#233;ntesis</span>
+
+(global-hl-line-mode 1)         <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Resalta la line  actual</span>
+
+(tool-bar-mode -1)              <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Ocultar la barra herramientas (logos)</span>
+
+(menu-bar-mode 1)               <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Oculta la barra de menu</span>
+
+(global-visual-line-mode 1)     <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Corta las lineas por palabras</span>
+
+(setq inhibit-startup-screen t) <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Evita la pantalla de inicio</span>
+
+(global-set-key (kbd <span style="color: #2d9574;">"C-c j"</span>) 'just-one-space) <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">M-SPC, elimina los espacios entre lineas</span>
+
+<span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Guarda los archivos de respaldo de emacs en la carpeta .saves</span>
+(setq backup-directory-alist `((<span style="color: #2d9574;">"."</span> . <span style="color: #2d9574;">"~/.saves"</span>)))
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0063aa" class="outline-2">
+<h2 id="orgf0063aa"><span class="section-number-2">3</span> Melpa</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+La gran ventaja de emacs es que puedes tener acceso a una gran cantidad de paquetes, <a href="https://github.com/melpa/melpa">Melpa</a> es un repositorio de paquetes a través del cual puedes instalarlos. Es necesario agregar los siguientes comandos en el archivo <code>.emacs</code>. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Melpa</span>
+(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">package</span>)
+(<span style="color: #3a81c3; font-weight: bold;">let*</span> ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (<span style="color: #3a81c3; font-weight: bold;">if</span> no-ssl <span style="color: #2d9574;">"http"</span> <span style="color: #2d9574;">"https"</span>)))
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired</span>
+  (add-to-list 'package-archives (cons <span style="color: #2d9574;">"melpa"</span> (concat proto <span style="color: #2d9574;">"://melpa.org/packages/"</span>)) t)
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">;;</span><span style="color: #2aa1ae; background-color: #ecf3ec;">(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)</span>
+  (<span style="color: #3a81c3; font-weight: bold;">when</span> (&lt; emacs-major-version 24)
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">For important compatibility libraries like cl-lib</span>
+    (add-to-list 'package-archives '(<span style="color: #2d9574;">"gnu"</span> . (concat proto <span style="color: #2d9574;">"://elpa.gnu.org/packages/"</span>)))))
+(package-initialize)
+</pre>
+</div>
+
+<p>
+Ahora ejecutamos el comando <code>M-x package-list-packages [RET]</code> para visualizar e instalar los paquetes desde MELPA. Para Instalar paquetes en MELPA:
+</p>
+
+<ul class="org-ul">
+<li><b>i</b> : marcar para instalar</li>
+<li><b>d</b> : marcar para borrar</li>
+<li><b>x</b> : instalar</li>
+<li><b>u</b> : desmarcar</li>
+</ul>
+
+<p>
+Primero marcamos los paquetes que se desean instalar <b>i</b>, y posteriormente <b>x</b> los instalamos los paquetes seleccionados. También podemos instalar paquetes al ejecutar el comando <code>M-x package-install [RET]</code> y el nombre del paquete.
+</p>
+
+
+<div class="figure">
+<p><img src="MELPA.png" alt="MELPA.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>MELPA</p>
+</div>
+
+<p>
+Hay muchos paquetes de interesantes, pero lo mejor es los iremos tratando uno por uno. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6678d45" class="outline-2">
+<h2 id="org6678d45"><span class="section-number-2">4</span> Paquetes esenciales</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org69bb7f6" class="outline-3">
+<h3 id="org69bb7f6"><span class="section-number-3">4.1</span> Auto-Complete</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+El paquete <a href="https://github.com/auto-complete/auto-complete">Auto-Complete</a> es una extensión que permite autocompletar el texto. Para instlarlo
+</p>
+
+<p>
+<code>M-x package-install [RET] auto-complete [RET]</code>
+</p>
+
+<p>
+Agregamos las siguiente orden en el archivo <code>.emacs</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(ac-config-default)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org42d3f31" class="outline-3">
+<h3 id="org42d3f31"><span class="section-number-3">4.2</span> Aspell</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+La ortografía es algo importante. Para poder utilizar un diccionario en <code>emacs</code> primero es necesario tenerlo instalado en el sistema. Por ejemplo, para instalar el diccionario de español en <code>fedora</code> utilizamos el comando
+</p>
+
+<pre class="example">
+sudo dnf install aspell-es
+</pre>
+
+<p>
+Ahora es necesario indicarle a emacs que utilizaremos el diccionario de <code>aspell</code>, y en nuestro caso utilizamos el diccionario en español por default.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(setq-default ispell-program-name <span style="color: #2d9574;">"aspell"</span>)
+(setq ispell-dictionary <span style="color: #2d9574;">"castellano"</span>)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3985773" class="outline-4">
+<h4 id="org3985773"><span class="section-number-4">4.2.1</span> Algunos comandos para la corrección de ortografía</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li><b>M-$</b>                    : Revisar una palabra</li>
+<li><b>M-x ispell</b>             : Revisa todas las palabras en el buffer</li>
+<li><b>M-x flyspell-mode</b>      : Habilita el modo flyspell, marca todas las palabras mal escritas</li>
+<li><b>M-x flyspell-prog-mode</b> : Habilita el Flyspell para comentarios y cadenas de caracteres.</li>
+</ul>
+
+<p>
+Para ver todos los comandos visita <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Spelling.html">Checking and Correcting Spelling</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org21ec14d" class="outline-3">
+<h3 id="org21ec14d"><span class="section-number-3">4.3</span> Yasnippet</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+<a href="https://github.com/joaotavora/yasnippet">YASnippet</a> es un sistema de template para emacs. Permite utilizar abreviaciones y automaticamente expandir a una función del template. Incluye templates de: <code>C</code>, <code>Python</code>, <code>LaTeX</code> y más. La sintaxis del snippet (retazo) esta inspirado en la sintaxis de TexMate.
+</p>
+
+<p>
+Para la instalación creamos una carpeta en  <code>~/.emacs.d/plugins</code> y ahí clonamos el repositorio de yasnippet.
+</p>
+
+<pre class="example">
+$ cd ~/.emacs.d/plugins
+$ git clone --recursive https://github.com/joaotavora/yasnippet
+</pre>
+
+<p>
+Agregamos lo siguiente en el archivo <code>.emacs</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(add-to-list 'load-path
+              <span style="color: #2d9574;">"~/.emacs.d/plugins/yasnippet"</span>)
+(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">yasnippet</span>)
+(yas-global-mode 1)
+</pre>
+</div>
+
+<p>
+Una vez que reiniciemos <code>emacs</code> en el menu aparecerá una nueva opción llamada <code>YASnippet</code> en la cual podremos ver todos los atajos disponibles, dependiendo de programa que estemos utilizando.
+</p>
+
+
+<div class="figure">
+<p><img src="YASnippet.png" alt="YASnippet.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>YASnippet</p>
+</div>
+
+<p>
+Por ejemplo, ahora cuando utilizamos <code>LaTeX</code> y queremos insertar una figura  únicamente escribimos <code>fig [Tab]</code> y tenemos escrita función necesaría para ingresar una figura en <code>LaTeX</code>.
+</p>
+
+<pre class="example">
+\begin{figure}[ht]
+  \centering
+  \includegraphics[options]{figures/path.pdf}
+  \caption{\label{fig:label} }
+\end{figure}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb162f0c" class="outline-2">
+<h2 id="orgb162f0c"><span class="section-number-2">5</span> LaTeX</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgf74097c" class="outline-3">
+<h3 id="orgf74097c"><span class="section-number-3">5.1</span> AUCTeX</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+<a href="https://www.gnu.org/software/auctex/manual/auctex.index.html">AUCTeX</a> es un ambiente integral para el editor de <code>LaTeX</code>. Aunque <code>AUCTeX</code> contiene un gran numero de característica. Después de instalarlo puedes seguir escribiendo en <code>LaTeX</code> de la misma forma que lo hacias y empezar a usar las caracteristicas en pequeños pasos.
+</p>
+
+<pre class="example">
+M-x package-install [RET] auctex
+</pre>
+
+
+<p>
+Para activar <code>RefTeX</code> hay que agregar lo siguiente en el archivo <code>.emacs</code> 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   <span style="color: #2aa1ae; background-color: #ecf3ec;">; Activar RefTeX con AucTeX</span>
+(setq reftex-plug-into-AUCTeX t)              <span style="color: #2aa1ae; background-color: #ecf3ec;">; Conectar a AUCTeX con RefTeX</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org77780de" class="outline-2">
+<h2 id="org77780de"><span class="section-number-2">6</span> Gnuplot</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Al utilizar <code>emacs</code> como tu editor de <code>gnuplot</code> puedes visualizar las gráficas facilmente al instalar el paquete <code>gnuplot-mode</code> desde la lista de paquetes
+</p>
+
+<pre class="example">
+M-x package-install [RET] gnuplot-mode [RET]
+</pre>
+
+<p>
+Agreagamos lo siguiente al archivo <code>.emacs</code> para que pueda utilizar el modo de <code>gnuplot</code> cuando abrimos un archivo con la extensión <code>file.gp</code> o <code>file.gnuplot</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">gnuplot-mode</span>)
+
+(setq auto-mode-alist 
+(append '((<span style="color: #2d9574;">"\\.\\(gp\\|gnuplot\\)$"</span> . gnuplot-mode)) auto-mode-alist))
+</pre>
+</div>
+
+<p>
+Al escribir un <code>script</code> de <code>gnuplot</code> en <code>emacs</code> ahora lo podemos ejecutar con mediante 
+</p>
+
+<pre class="example">
+C-c C-c
+</pre>
+
+
+<div class="figure">
+<p><img src="gnuplot.png" alt="gnuplot.png" />
+</p>
+</div>
+
+<p>
+Para generar una gráfica que puedamos utilizar en nuestros artículos lo podemos hacer al combinar <code>LaTeX</code> y <code>gnuplot</code>, para lo cual puedes revisar el script <a href="https://github.com/imorenoc/gp2pdf">gp2pdf</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4c255d" class="outline-2">
+<h2 id="orga4c255d"><span class="section-number-2">7</span> R</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+La razón por la cual comencé a utilizar <code>emacs</code> fue <code>R</code>, al estar buscando el mejor editor de <code>R</code> me encontré una imagen como la siguiente:
+</p>
+
+
+<div class="figure">
+<p><img src="R.png" alt="R.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span><code>R</code> en en editor de <code>emacs</code>.</p>
+</div>
+
+<p>
+De lo cual entendí que era posible utilizar <code>emacs</code> para generar el <code>script</code> de <code>R</code> y al mismo tiempo ejecutar linea por linea, como si utilizará  <a href="https://www.rstudio.com/">RStudio</a>. Para esto es necesario instalar primero <a href="https://ess.r-project.org/">ESS</a> (Emacs Speak Statistics), lo puedes instalar desde <code>MELPA</code> o a través del gestor de paquetes, para Fedora:
+</p>
+
+<pre class="example">
+sudo dnf install emacs-ess
+</pre>
+
+<p>
+Agregamos <code>(require 'ess-site)</code> en el archivo <code>.emacs</code> para leer ESS, con lo cual podrémos utilizar <code>R</code> en <code>emacs</code>. También puedes utilizar los archivos <code>file.Rmd</code> y <code>file.Rnw</code> al instalar los paquetes <a href="https://github.com/polymode/polymode">Polymode</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">ess-site</span>)
+
+(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">poly-R</span>)
+(<span style="color: #3a81c3; font-weight: bold;">require</span> '<span style="color: #4e3163;">poly-markdown</span>)
+<span style="color: #2aa1ae; background-color: #ecf3ec;">;;; </span><span style="color: #2aa1ae; background-color: #ecf3ec;">R modes</span>
+(add-to-list 'auto-mode-alist '(<span style="color: #2d9574;">"\\.Snw"</span> . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '(<span style="color: #2d9574;">"\\.Rnw"</span> . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '(<span style="color: #2d9574;">"\\.Rmd"</span> . poly-markdown+r-mode))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge8f64aa" class="outline-2">
+<h2 id="orge8f64aa"><span class="section-number-2">8</span> C</h2>
+</div>
+
+<div id="outline-container-org3dd4aad" class="outline-2">
+<h2 id="org3dd4aad"><span class="section-number-2">9</span> Comandos de interés</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org02b03ba" class="outline-4">
+<h4 id="org02b03ba"><span class="section-number-4">9.0.1</span> Ventanas</h4>
+<div class="outline-text-4" id="text-9-0-1">
+<ul class="org-ul">
+<li><b>C-x 1</b> : Una ventana</li>
+<li><b>C-x 2</b> : Dividir la pantalla horizontalmente</li>
+<li><b>C-x 3</b> : Para dividir la pantalla verticalmente</li>
+<li><b>C-x o</b> : Cambiar entre pantalla</li>
+<li><b>C-x 0</b> : Eliminar la pantalla actual</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaa603cc" class="outline-4">
+<h4 id="orgaa603cc"><span class="section-number-4">9.0.2</span> Buscar</h4>
+<div class="outline-text-4" id="text-9-0-2">
+<ul class="org-ul">
+<li><b>C-s</b> : buscar hacia delante</li>
+<li><b>C-r</b> : buscar hacia atrás</li>
+<li><b>C-%</b> : buscar y remplazar</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1b92698" class="outline-4">
+<h4 id="org1b92698"><span class="section-number-4">9.0.3</span> Paréntesis</h4>
+<div class="outline-text-4" id="text-9-0-3">
+<ul class="org-ul">
+<li><b>C-M-f</b> va a donde cierra ese paréntesis</li>
+<li><b>C-M-b</b> va a donde abre ese paréntesis</li>
+</ul>
+
+<p>
+{ A * ( a + b + c ) } 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3402ff5" class="outline-4">
+<h4 id="org3402ff5"><span class="section-number-4">9.0.4</span> Indentación</h4>
+<div class="outline-text-4" id="text-9-0-4">
+<ul class="org-ul">
+<li><b>C-u C-x C-i</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4f48be4" class="outline-4">
+<h4 id="org4f48be4"><span class="section-number-4">9.0.5</span> Editando Mayúsculas/Minúscilas</h4>
+<div class="outline-text-4" id="text-9-0-5">
+<ul class="org-ul">
+<li><b>M-c</b> : Cambia una letra a Mayúscula</li>
+<li><b>M-l</b> : Cambia un a Minuscula</li>
+<li><b>M-u</b> : Palabra a MAYÚSCULAS</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Isaías Moreno Cruz</p>
+<p class="date">Created: 2019-04-13 Sat 12:47</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

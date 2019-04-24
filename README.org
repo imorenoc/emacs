@@ -1,0 +1,6 @@
+#+TITLE: README
+
+
+Las siguientes notas tiene la intensión de motivar el uso de emacs como editor de texto predeterminado. Muestran muchas de las aplicaciones con las que se puede usar, y la manera de configurarlo. No es un manual exhaustivo sino introductorio.
+
++ [[file:./emacs.org][manual]]
